@@ -1,5 +1,5 @@
 
-public class Set {
+public class List {
 
     int data[] = new int[5];
     int count;
@@ -17,27 +17,11 @@ public class Set {
 
     public void add(int d) {
         if (!isFull()) {
-            if (!search(d)) {
-                data[count] = d;
-                count++;
-            }
+            data[count] = d;
+            count++;
         } else {
-            System.out.println("Set is Full.");
+            System.out.println("Collection is full.");
         }
-    }
-
-    int remove(int id) {
-        int temp = -1;
-        if (!isEmpty()) {
-            temp = data[id];
-            data[id] = data[count - 1];
-            count--;
-        }
-        return temp;
-    }
-
-    int size() {
-        return count;
     }
 
     boolean isFull() {
@@ -53,4 +37,30 @@ public class Set {
             System.out.println(data[i]);
         }
     }
+
+    int size() {
+        return count;
+    }
+
+    void delete(int k) {
+        for (int i = k; i < count - 1; i++) {
+            data[i] = data[i + 1];
+        }
+        count--;
+    }
+
+    void insert(int k, int item) {
+        if(!isFull()){
+            if (k >= 0 && k < count) {
+                for (int n = count - 1; n >= k; n--) {
+                    data[n + 1] = data[n];
+                }
+                data[k] = item;
+                count++;
+            } 
+        }
+    
+
+    }
+
 }

@@ -1,28 +1,15 @@
 
-public class Set {
+public class Collection {
 
     int data[] = new int[5];
     int count;
-    boolean found = false;
-
-    boolean search(int item) {
-        for (int i = 0; i < count; i++) {
-            if (data[i] == item) {
-                i = count;
-                found = true;
-            }
-        }
-        return found;
-    }
 
     public void add(int d) {
         if (!isFull()) {
-            if (!search(d)) {
-                data[count] = d;
-                count++;
-            }
+            data[count] = d;
+            count++;
         } else {
-            System.out.println("Set is Full.");
+            System.out.println("Collection is full.");
         }
     }
 
